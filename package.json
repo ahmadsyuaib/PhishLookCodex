@@ -1,0 +1,14 @@
+{
+  "name": "phishlookcodex",
+  "version": "1.0.0",
+  "description": "Minimal Outlook event-based add-in that suggests a placeholder reply when a message is read.",
+  "scripts": {
+    "setup": "node scripts/prepare-assets.js",
+    "start": "http-server src -S -C certs/localhost.pem -K certs/localhost-key.pem -p 3000 --cors"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "pngjs": "^7.0.0"
+  }
+}

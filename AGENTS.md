@@ -1,7 +1,10 @@
 # Outlook Extension – Minimal Agent
 
-This repository demonstrates a **minimal Outlook add-in**. The add-in does something simple when a user opens an email: it reads the subject and body, then generates a trivial "reply suggestion" so we can confirm the extension is working.
+This repository contains a minimal Outlook event-based add-in. The add-in runs whenever an email message is opened, reads the subject, and surfaces a short reply suggestion through Outlook's notification bar. Use the files under `src/` to host the JavaScript and icons, and the manifest under `manifest/` to sideload the add-in.
 
----
+## Notes for agents
+- Keep the solution lightweight and dependency-free aside from the static web server defined in `package.json`.
+- Static assets (HTML, JS, icons) live in `src/`.
+- When updating functionality, also refresh the sideload/testing guide in `TODO.md`.
 
-## Repository Structure
+No additional formatting or linting tools are configured for this project.

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+  xsi:type="MailApp">
+  <Id>9d02b8ce-d9c8-4be5-9b2a-7c17f0ebf0b3</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>PhishLookCodex</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="PhishLookCodex Reply Helper" />
+  <Description DefaultValue="Minimal event-based Outlook add-in that suggests a placeholder reply when an email is opened." />
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://localhost" />
+  <AppDomains>
+    <AppDomain>https://localhost:3000</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.12">
+      <Set Name="Mailbox" />
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:3000/function-file.html" />
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteMailbox</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xsi:type="mailappor:VersionOverridesV1_1">
+    <Requirements>
+      <Sets>
+        <Set Name="Mailbox" MinVersion="1.12" />
+      </Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="mailappor:MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="functionFile" />
+          <ExtensionPoint xsi:type="LaunchEvent">
+            <LaunchEvents>
+              <LaunchEvent Type="OnMessageRead" FunctionName="onMessageRead" />
+            </LaunchEvents>
+            <SourceLocation resid="functionFile" />
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
+        <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
+        <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="replySuggestionNotification" DefaultValue="Reply suggestion" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="replySuggestionNotificationDescription" DefaultValue="Generates a placeholder reply suggestion." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
