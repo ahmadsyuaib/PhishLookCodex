@@ -28,6 +28,8 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
+        <RequestedHeight>250</RequestedHeight>
+        <RequestedWidth>350</RequestedWidth>
         <SourceLocation DefaultValue="https://localhost:3000/function-file.html" />
       </DesktopSettings>
     </Form>
